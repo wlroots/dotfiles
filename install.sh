@@ -179,6 +179,7 @@ setup_dotfiles() {
             done < <(echo "$checkout_output" | grep -E '^\s+\S' | grep -v 'error:')
 
             git --git-dir="$DOTFILES_DIR" --work-tree="$HOME" checkout
+	    git --git-dir="$DOTFILES_DIR" --work-tree="$HOME" submodule update --init --recursive
     fi
 
     git --git-dir="$DOTFILES_DIR" --work-tree="$HOME" config --local status.showUntrackedFiles no
